@@ -4,6 +4,13 @@ st.set_page_config(page_title='PREDIKSI JUMLAH KARYAWAN', page_icon=":dart:", la
 
 """## UPLOAD DATA YANG AKAN DI PREDIKSI!\
 """
+import pandas as pd
+from darts import TimeSeries
+
+from darts.models import ExponentialSmoothing
+
+import matplotlib.pyplot as plt
+
 
 import darts.datasets as ds
 all_datasets = {x: ds.__getattribute__(x) for x in dir(ds) if isclass(ds.__getattribute__(x)) and x not in ("DatasetLoaderMetadata", "DatasetLoaderCSV")}
