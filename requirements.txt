@@ -4,5 +4,5 @@ plotly
 xlrd
 isclass
 pandas
-ExponentialSmoothing
 TimeSeries
+statsmodels==0.9.0rc1
