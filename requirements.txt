@@ -1,0 +1,2 @@
+u8darts==0.17.1
+streamlit==1.7.0
