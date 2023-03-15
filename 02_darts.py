@@ -13,18 +13,8 @@ import matplotlib.pyplot as plt
 
 
 with st.echo('below'):
-    use_example = st.checkbox("Use example dataset")
-    if use_example:
-        dataset_choice = st.selectbox("Example Dart Dataset", all_datasets, index=5)
-        with st.spinner("Fetching Dataset"):
-            dataset = all_datasets[dataset_choice]()
-            timeseries = dataset.load()
-            custom_df = timeseries.pd_dataframe()
-            custom_df['Period'] = custom_df.index.to_series()
-            custom_df = custom_df[['Period', *custom_df.columns[:-1]]]
-    else:
-        csv_data = st.file_uploader("New Timeseries csv")
-        delimiter = st.text_input("CSV Delimiter", value=',', max_chars=1, help='How your CSV values are separated')
+    csv_data = st.file_uploader("New Timeseries csv")
+    delimiter = st.text_input("CSV Delimiter", value=',', max_chars=1, help='How your CSV values are separated')
 
         if csv_data is None:
             st.warning("Upload a CSV to analyze")
