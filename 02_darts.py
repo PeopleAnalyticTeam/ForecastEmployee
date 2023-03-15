@@ -2,8 +2,9 @@ from inspect import isclass
 import streamlit as st
 
 st.set_page_config(page_title="", page_icon=":dart:") #, layout='wide')
+st.writer
 
-"""## ":green[PREDIKSI DERET WAKTU]"\
+"""## PREDIKSI DERET WAKTU\
 """
 import pandas as pd
 from darts import TimeSeries
@@ -14,7 +15,7 @@ import matplotlib.pyplot as plt
 
 
 #with st.echo('below'):
-csv_data = st.file_uploader("Pilih file dengan format **:blue[.CSV]**")
+csv_data = st.file_uploader("Pilih file dengan format **:blue[.txt]**")
 delimiter = st.text_input("Tentukan sepataror file CSV", value=',', max_chars=1) #help='How your CSV values are separated')
 if csv_data is None:
     st.warning("")
