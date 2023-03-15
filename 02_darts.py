@@ -40,13 +40,13 @@ with st.expander("Tampilkan Data Sesuai Periode Deret Waktu"):
     st.dataframe(custom_df)
 
 custom_series = TimeSeries.from_dataframe(custom_df, value_cols=value_cols)
-st.subheader("Custom Training Controls")
+st.subheader("Pengaturan Data Latih dan Data Uji")
 max_periods = len(custom_series) - (2 * periods_per_year)
 default_periods = min(10, max_periods)
-num_periods = st.slider("Number of validation periods", key='cust_period', min_value=2, max_value=max_periods, value=default_periods, help='How many periods worth of datapoints to exclude from training')
-num_samples = st.number_input("Number of prediction samples", key='cust_sample', min_value=1, max_value=10000, value=1000, help="Number of times a prediction is sampled for a probabilistic model")
+num_periods = st.slider("Banyak Data Uji", key='cust_period', min_value=2, max_value=max_periods, value=default_periods)
+num_samples = st.number_input("Banyak Data Latih", key='cust_sample', min_value=1, max_value=10000, value=1000)
 
-st.subheader("Custom Plotting Controls")
+st.subheader("Pengaturan Grafik")
 low_quantile = st.slider('Lower Percentile', key='cust_low', min_value=0.01, max_value=0.99, value=0.05, help='The quantile to use for the lower bound of the plotted confidence interval.')
 high_quantile = st.slider('High Percentile', key='cust_high', min_value=0.01, max_value=0.99, value=0.95, help='The quantile to use for the upper bound of the plotted confidence interval.')
 
