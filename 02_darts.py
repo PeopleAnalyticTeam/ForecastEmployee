@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 
 
 #with st.echo('below'):
-data_data = st.file_uploader("PILIH FILE EXCEL YANG BERISI DATA DERET WAKTU", collapsed)
+data_data = st.file_uploader("PILIH FILE EXCEL YANG BERISI DATA DERET WAKTU")
 #delimiter = st.text_input("Tentukan sepataror file CSV", value=',', max_chars=1) #help='How your CSV values are separated')
 if data_data is None:
    st.stop()
