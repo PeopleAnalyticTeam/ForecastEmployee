@@ -1,6 +1,6 @@
 from inspect import isclass
 import streamlit as st
-st.set_page_config(page_title='PREDIKSI JUMLAH KARYAWAN', page_icon=":dart:", layout='wide')
+st.set_page_config(page_title= _:blue['PREDIKSI JUMLAH KARYAWAN']_, page_icon=":dart:", layout='wide')
 
 """## UPLOAD DATA YANG AKAN DI PREDIKSI!\
 """
@@ -13,10 +13,10 @@ import matplotlib.pyplot as plt
 
 
 with st.echo('below'):
-    csv_data = st.file_uploader("New Timeseries csv")
-    delimiter = st.text_input("CSV Delimiter", value=',', max_chars=1, help='How your CSV values are separated')
+    csv_data = st.file_uploader("")
+    delimiter = st.text_input("Tentukan sepataror file CSV", value=',', max_chars=1, #help='How your CSV values are separated')
     if csv_data is None:
-        st.warning("Upload a CSV to analyze")
+        st.warning("Upload file CSV yang akan di Prediksi")
         st.stop()
     
     custom_df = pd.read_csv(csv_data, sep=delimiter)
