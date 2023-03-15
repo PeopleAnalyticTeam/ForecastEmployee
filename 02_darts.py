@@ -3,7 +3,7 @@ import streamlit as st
 
 st.set_page_config(page_title="", page_icon=":dart:") #, layout='wide')
 
-"""## ("PREDIKSI DERET WAKTU")\
+"""## PREDIKSI DERET WAKTU\
 """
 import pandas as pd
 from darts import TimeSeries
@@ -26,7 +26,7 @@ with st.expander("Tampilkan Nama Kolom dan Data"):
 
 columns = list(custom_df.columns)
     
-time_col = st.selectbox(":orange[Pilih Kolom Yang Berisi Keterangan Waktu]", columns) #help="Name of the column in your csv with time period data")
+time_col = st.selectbox((":orange[Pilih Kolom Yang Berisi Keterangan Waktu]"), columns) #help="Name of the column in your csv with time period data")
 value_cols = st.selectbox(":orange[Pilih Kolom Yang Ingin Di Prediksi]", columns, 1) #, help="Name of column(s) with values to sample and forecast")
 #options = {'Bulan': ('M', 12), 'Minggu': ('W', 52), 'Tahun': ('A', 1), 'Hari':  ('D', 365), 'Jam': ('H', 365 * 24), 'Kuarter': ('Q', 8)}
 options = {'Monthly': ('M', 12), 'Weekly': ('W', 52), 'Yearly': ('A', 1), 'Daily':  ('D', 365), 'Hourly': ('H', 365 * 24), 'Quarterly': ('Q', 8)}
