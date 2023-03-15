@@ -1,8 +1,7 @@
 from inspect import isclass
 import streamlit as st
 
-st.title('_:green[PREDIKSI DERET WAKTU]_')
-st.set_page_config(page_title="", page_icon=":dart:") #, layout='wide')
+st.set_page_config(page_title="PREDIKSI JUMLAH KARYAWAN", page_icon=":dart:") #, layout='wide')
 
 """## UPLOAD DATA YANG AKAN DI PREDIKSI!\
 """
