@@ -3,7 +3,7 @@ import streamlit as st
 
 st.set_page_config(page_title="", page_icon=":dart:") #, layout='wide')
 
-"""## :green[PREDIKSI DERET WAKTU]\
+"""## ":green[PREDIKSI DERET WAKTU]"\
 """
 import pandas as pd
 from darts import TimeSeries
