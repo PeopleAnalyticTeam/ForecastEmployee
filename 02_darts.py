@@ -20,7 +20,7 @@ if data_data is None:
    st.stop()
 
 
-custom_df = pandas.read_excel(data_data) #, sep=delimiter)
+custom_df = pd.read_excel(data_data) #, sep=delimiter)
 with st.expander("Tampilkan Nama Kolom dan Data"):
     st.dataframe(custom_df)
 
