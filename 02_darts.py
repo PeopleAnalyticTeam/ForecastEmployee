@@ -15,6 +15,9 @@ import matplotlib.pyplot as plt
 
 #with st.echo('below'):
 csv_data = st.file_uploader("Pilih file dengan format .CSV")
+delimiter = st.text_input("Tentukan sepataror file CSV", value=',', max_chars=1) #help='How your CSV values are separated')
+if csv_data is None:
+    st.stop()
 
 
 custom_df = pd.read_csv(csv_data, sep=delimiter)
