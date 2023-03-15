@@ -2,9 +2,8 @@ from inspect import isclass
 import streamlit as st
 
 st.set_page_config(page_title="", page_icon=":dart:") #, layout='wide')
-st.writer
 
-"""## PREDIKSI DERET WAKTU\
+"""## ("PREDIKSI DERET WAKTU")\
 """
 import pandas as pd
 from darts import TimeSeries
