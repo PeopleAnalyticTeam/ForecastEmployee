@@ -13,30 +13,26 @@ import matplotlib.pyplot as plt
 
 
 #with st.echo('below'):
-csv_data = st.file_uploader("")
+csv_data = st.file_uploader("Pilih file dengan format **:blue[.CSV]**")
 delimiter = st.text_input("Tentukan sepataror file CSV", value=',', max_chars=1) #help='How your CSV values are separated')
 if csv_data is None:
-    st.warning("Upload file CSV yang akan di Prediksi")
+    st.warning("")
     st.stop()
 
 custom_df = pd.read_csv(csv_data, sep=delimiter)
-with st.expander("Show Raw Data"):
+with st.expander(":orange[Tampilkan Nama Kolom dan Data]"):
     st.dataframe(custom_df)
 
-columns = list(custom_df.columns)
-with st.expander("Show all columns"):
-    st.write(' | '.join(columns))
-
-time_col = st.selectbox("Time Column", columns, help="Name of the column in your csv with time period data")
-value_cols = st.selectbox("Values Column(s)", columns, 1, help="Name of column(s) with values to sample and forecast")
-options = {'Monthly': ('M', 12), 'Weekly': ('W', 52), 'Yearly': ('A', 1), 'Daily':  ('D', 365), 'Hourly': ('H', 365 * 24), 'Quarterly': ('Q', 8)}
-sampling_period = st.selectbox("Time Series Period", options, help='How to define samples. Pandas will sum entries between periods to create a well-formed Time Series')
+time_col = st.selectbox(":orange[Pilih Kolom Yang Berisi Keterangan Waktu]", columns) #help="Name of the column in your csv with time period data")
+value_cols = st.selectbox(":orange[Pilih Kolom Yang Ingin Di Prediksi]", columns, 1) #, help="Name of column(s) with values to sample and forecast")
+options = {'Bulan': ('M', 12), 'Minggu': ('W', 52), 'Tahun': ('A', 1), 'Hari':  ('D', 365), 'Jam': ('H', 365 * 24), 'Kuarter': ('Q', 8)}
+sampling_period = st.selectbox(":orange[Pilih Periode Deret Waktu Prediksi]", options) #, help='How to define samples. Pandas will sum entries between periods to create a well-formed Time Series')
 
 custom_df[time_col] = pd.to_datetime(custom_df[time_col])
 freq_string, periods_per_year = options[sampling_period]
 custom_df = custom_df.set_index(time_col).resample(freq_string).sum()
-with st.expander("Show Resampled Data"):
-    st.write("Number of samples:", len(custom_df))
+with st.expander(":orange[Tampilkan Data Sesuai Periode Deret Waktu]"):
+    st.write("Banyak Data Sesuai Periode Deret Waktu:", len(custom_df))
     st.dataframe(custom_df)
 
 custom_series = TimeSeries.from_dataframe(custom_df, value_cols=value_cols)
