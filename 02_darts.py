@@ -23,6 +23,8 @@ custom_df = pd.read_csv(csv_data, sep=delimiter)
 with st.expander(":orange[Tampilkan Nama Kolom dan Data]"):
     st.dataframe(custom_df)
 
+columns = list(custom_df.columns)
+    
 time_col = st.selectbox(":orange[Pilih Kolom Yang Berisi Keterangan Waktu]", columns) #help="Name of the column in your csv with time period data")
 value_cols = st.selectbox(":orange[Pilih Kolom Yang Ingin Di Prediksi]", columns, 1) #, help="Name of column(s) with values to sample and forecast")
 options = {'Bulan': ('M', 12), 'Minggu': ('W', 52), 'Tahun': ('A', 1), 'Hari':  ('D', 365), 'Jam': ('H', 365 * 24), 'Kuarter': ('Q', 8)}
