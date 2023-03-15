@@ -12,7 +12,7 @@ from darts.models import ExponentialSmoothing
 import matplotlib.pyplot as plt
 
 
-#with st.echo('below'):
+with st.echo('below'):
 csv_data = st.file_uploader("")
 delimiter = st.text_input("Tentukan sepataror file CSV", value=',', max_chars=1) #help='How your CSV values are separated')
 if csv_data is None:
