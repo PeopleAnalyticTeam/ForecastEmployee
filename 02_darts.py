@@ -12,12 +12,6 @@ from darts.models import ExponentialSmoothing
 import matplotlib.pyplot as plt
 
 
-import darts.datasets as ds
-all_datasets = {x: ds.__getattribute__(x) for x in dir(ds) if isclass(ds.__getattribute__(x)) and x not in ("DatasetLoaderMetadata", "DatasetLoaderCSV")}
-with st.expander("More info on Darts Datasets"):
-    for name, dataset in all_datasets.items():
-        st.write(f"#### {name}\n\n{dataset.__doc__}")
-
 with st.echo('below'):
     use_example = st.checkbox("Use example dataset")
     if use_example:
