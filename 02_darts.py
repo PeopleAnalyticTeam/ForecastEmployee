@@ -44,7 +44,7 @@ st.subheader("Pengaturan Data Latih dan Data Uji")
 max_periods = len(custom_series) - (2 * periods_per_year)
 default_periods = min(10, max_periods)
 num_periods = st.slider("Banyak Data Uji", key='cust_period', min_value=2, max_value=max_periods, value=default_periods)
-num_samples = st.slider("Banyak Data Latih", key='cust_sample', min_value=1, max_value=10000, value=default_periods)
+num_samples = st.slider("Banyak Data Latih", key='cust_sample', min_value=1, max_value=max_periods, value=default_periods)
 
 st.subheader("Pengaturan Grafik")
 low_quantile = st.slider('Lower Percentile', key='cust_low', min_value=0.01, max_value=0.99, value=0.05, help='The quantile to use for the lower bound of the plotted confidence interval.')
