@@ -58,7 +58,7 @@ prediction = model.predict(len(val), num_samples=num_samples)
 custom_fig = plt.figure()
 custom_series.plot()
 
-prediction.plot(label='forecast', low_quantile=low_quantile, high_quantile=high_quantile)
+prediction.plot(label='prediksi', low_quantile=low_quantile, high_quantile=high_quantile)
 
 plt.legend()
 st.pyplot(custom_fig)
